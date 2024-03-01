@@ -1,0 +1,1 @@
+A simple Rock, Paper, Scissors game using Javacript. The game is played through the console.
