@@ -72,6 +72,6 @@ function gameLoop() {
     }
 }
 
-gameLoop();
+//gameLoop();
 
 
