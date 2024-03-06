@@ -64,11 +64,12 @@ main {
 
 .player-info,
 .computer-info {
+    border: 3px solid rgba(0, 0, 0, 0.100);
 }
 
 .line {
-    height: 10px;
-    background-color: black;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.060);
     border-radius: 10px;
     margin: 25px 0px;
 }
