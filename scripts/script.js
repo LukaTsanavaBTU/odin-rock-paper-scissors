@@ -30,7 +30,7 @@ function playerChoose() {
     }
 }
 
-function mainGame(playerChoice, computerChoice) {
+function singleGame(playerChoice, computerChoice) {
     if ((playerChoice === "rock" & computerChoice === "paper")
         || (playerChoice === "paper" & computerChoice === "scissors")
         || (playerChoice === "scissors" & computerChoice === "rock")) {
@@ -42,30 +42,36 @@ function mainGame(playerChoice, computerChoice) {
     }
 }
 
-let playerScore = 0;
-let computerScore = 0;
 
-while (true) {
-    let playerChoice = playerChoose();
-    let computerChoice =  computerChoose();
-    let result = mainGame(playerChoice, computerChoice);
+function gameLoop() {
+    let playerScore = 0;
+    let computerScore = 0;
 
-    if (result === "win") {
-        playerScore++
-        console.log(`Computer played ${computerChoice}. \n${playerChoice} beats ${computerChoice}. You Win! \nPlayer: ${playerScore}; Computer: ${computerScore}`);
-    } else if (result === "lose") {
-        computerScore++
-        console.log(`Computer played ${computerChoice}. \n${computerChoice} beats ${playerChoice}. You Lose! \nPlayer: ${playerScore}; Computer: ${computerScore}`);
-    } else {
-        console.log(`You both played ${playerChoice}. Tie!`);
-    }
-    
-    if (playerScore === 3) {
-        console.log("You won the game! Congratulations!");
-        break;
-    } else if (computerScore === 3) {
-        console.log("You lost the game! Better luck next time!");
-        break;
+    while (true) {
+        let playerChoice = playerChoose();
+        let computerChoice =  computerChoose();
+        let result = singleGame(playerChoice, computerChoice);
+
+        if (result === "win") {
+            playerScore++
+            console.log(`Computer played ${computerChoice}. \n${playerChoice} beats ${computerChoice}. You Win! \nPlayer: ${playerScore}; Computer: ${computerScore}`);
+        } else if (result === "lose") {
+            computerScore++
+            console.log(`Computer played ${computerChoice}. \n${computerChoice} beats ${playerChoice}. You Lose! \nPlayer: ${playerScore}; Computer: ${computerScore}`);
+        } else {
+            console.log(`You both played ${playerChoice}. Tie!`);
+        }
+        
+        if (playerScore === 3) {
+            console.log("You won the game! Congratulations!");
+            break;
+        } else if (computerScore === 3) {
+            console.log("You lost the game! Better luck next time!");
+            break;
+        }
     }
 }
+
+gameLoop();
+
 
