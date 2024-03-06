@@ -1,7 +1,10 @@
 body {
+    margin: 0px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: space-between;
+    font-family: "Madimi One", sans-serif;
 }
 
 h1 {
@@ -17,11 +20,59 @@ main {
     display: flex;
     justify-content: space-evenly;
     gap: 20px;
+    flex-wrap: wrap;
+}
+
+.choice-buttons > button {
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.060);
+}
+
+.choice-buttons > button:hover {
+    background-color: rgba(0, 0, 0, 0.150);
+}
+
+.choice-buttons > button:active {
+    background-color: rgba(0, 0, 0, 0.060);
 }
 
 .info-container {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    align-items: center;
 }
 
+.info-container > div {
+    width: 200px;
+    text-align: center;
+    font-size: xx-large;
+    padding: 10px;
+}
+
+.move {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info {
+    border-radius: 10px;
+}
+
+.player-info,
+.computer-info {
+}
+
+.line {
+    height: 10px;
+    background-color: black;
+    border-radius: 10px;
+    margin: 25px 0px;
+}
+
+footer {
+    text-align: center;
+}
