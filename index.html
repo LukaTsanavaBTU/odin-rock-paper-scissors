@@ -8,16 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <script src="./scripts/script.js" defer></script>
 </head>
 <body>
-    <script src="./scripts/script.js"></script>
     <header>
         <h1>Rock Paper Scissors</h1>
     </header>
     <main>
         <div class="choice-buttons">
             <button id="rock">
-                <img src="./images/stone.png" alt="an image of a rock" width="200px">
+                <img src="./images/rock.png" alt="an image of a rock" width="200px">
             </button>
             <button id="paper">
                 <img src="./images/paper.png" alt="an image of a piece of paper" width="200px">
@@ -31,24 +31,24 @@
             <div class="player-info info">
                 <p class="player move">
                     You: 
-                    <img src="./images/stone.png" alt="" width="50px">
+                    <img src="./images/rock.png" alt="" width="50px">
                 </p>
                 <p class="player score">
-                    <span>0</span>pts
+                    <span id="player-score">0</span>pts
                 </p>
             </div>
             <div>
-                <p>
+                <p class="result-text">
                     Welcome To The Game!
                 </p>
             </div>
             <div class="computer-info info">
                 <p class="computer move">
-                    <img src="./images/stone.png" alt="" width="50px"> 
+                    <img src="./images/rock.png" alt="" width="50px"> 
                     :Computer 
                 </p>
                 <p class="computer score">
-                    <span>0</span>pts
+                    <span id="computer-score">0</span>pts
                 </p>
             </div>
         </div>
