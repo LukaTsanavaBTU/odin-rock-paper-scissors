@@ -33,7 +33,7 @@ buttons.forEach((button) => {
 });
 
 function singleGame(playerChoice, computerChoice) {
-    let winningScore = 3;
+    let winningScore = 5;
     if ((playerChoice === "rock" & computerChoice === "paper")
         || (playerChoice === "paper" & computerChoice === "scissors")
         || (playerChoice === "scissors" & computerChoice === "rock")) {
