@@ -2,12 +2,13 @@ const ROCK_IMAGE_DIR = "./images/rock.png";
 const PAPER_IMAGE_DIR = "./images/paper.png";
 const SCISSORS_IMAGE_DIR = "./images/scissors.png";
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".choice-buttons button");
 const playerScoreCounter = document.querySelector("#player-score");
 const computerScoreCounter = document.querySelector("#computer-score");
 const playerMoveImage = document.querySelector(".player.move img");
 const computerMoveImage = document.querySelector(".computer.move img");
 const resultText = document.querySelector(".result-text");
+const resultContainer = document.querySelector(".result-container");
 
 function computerChoose() {
     let computerChoice = Math.floor(Math.random() * 3);
@@ -32,11 +33,13 @@ buttons.forEach((button) => {
 });
 
 function singleGame(playerChoice, computerChoice) {
+    let winningScore = 3;
     if ((playerChoice === "rock" & computerChoice === "paper")
         || (playerChoice === "paper" & computerChoice === "scissors")
         || (playerChoice === "scissors" & computerChoice === "rock")) {
             computerScoreCounter.textContent = +computerScoreCounter.textContent + 1;
             resultText.textContent = "You Lose!";
+            finalChecker(winningScore)
             return "lose";
     } else if (playerChoice === computerChoice) {
         resultText.textContent = "Tie!";
@@ -44,36 +47,38 @@ function singleGame(playerChoice, computerChoice) {
     } else {
         resultText.textContent = "You Win!";
         playerScoreCounter.textContent = +playerScoreCounter.textContent + 1;
+        finalChecker(winningScore)
         return "win";
     }
 }
 
+function showFinalResult(result) {
+    resultText.textContent = `You ${result} the game`;
+    let tryAgainButton = document.createElement("button");
+    tryAgainButton.classList.add("try-again");
+    tryAgainButton.textContent = "Try Again";
+    resultContainer.appendChild(tryAgainButton);
+    tryAgainButton.addEventListener("click", tryAgain);
+    buttons.forEach((button) => {
+        button.disabled = true;
+    })
+}
 
-// function gameLoop() {
-//     let playerScore = 0;
-//     let computerScore = 0;
+function tryAgain() {
+    tryAgainButton = resultContainer.querySelector("button");
+    resultContainer.removeChild(tryAgainButton);
+    resultText.textContent = "Welcome To The Game!";
+    playerScoreCounter.textContent = 0;
+    computerScoreCounter.textContent = 0;
+    buttons.forEach((button) => {
+        button.disabled = false;
+    })
+}
 
-//     while (true) {
-//         let playerChoice = playerChoose();
-//         let computerChoice =  computerChoose();
-//         let result = singleGame(playerChoice, computerChoice);
-
-//         if (result === "win") {
-//             playerScore++
-//             console.log(`Computer played ${computerChoice}. \n${playerChoice} beats ${computerChoice}. You Win! \nPlayer: ${playerScore}; Computer: ${computerScore}`);
-//         } else if (result === "lose") {
-//             computerScore++
-//             console.log(`Computer played ${computerChoice}. \n${computerChoice} beats ${playerChoice}. You Lose! \nPlayer: ${playerScore}; Computer: ${computerScore}`);
-//         } else {
-//             console.log(`You both played ${playerChoice}. Tie!`);
-//         }
-        
-//         if (playerScore === 3) {
-//             console.log("You won the game! Congratulations!");
-//             break;
-//         } else if (computerScore === 3) {
-//             console.log("You lost the game! Better luck next time!");
-//             break;
-//         }
-//     }
-// }
+function finalChecker(winningScore) {
+    if (+computerScoreCounter.textContent === winningScore) {
+        showFinalResult("Lost");
+    } else if (+playerScoreCounter.textContent === winningScore) {
+        showFinalResult("Won");
+    }
+}

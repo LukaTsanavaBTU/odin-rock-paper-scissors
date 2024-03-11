@@ -48,6 +48,7 @@ main {
     text-align: center;
     font-size: xx-large;
     padding: 10px;
+    flex: none;
 }
 
 .move {
@@ -58,12 +59,29 @@ main {
 
 .info {
     border-radius: 10px;
-    flex: none;
 }
 
 .player-info,
 .computer-info {
     border: 3px solid rgba(0, 0, 0, 0.100);
+}
+
+.try-again {
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0.060);
+    font-family: "Madimi One", sans-serif;
+    font-size: x-large;
+    border-radius: 10px;
+    padding: 20px 0px;
+    width: inherit;
+}
+
+.try-again:hover{
+    background-color: rgba(0, 0, 0, 0.150);
+}
+
+.try-again:active{
+    background-color: rgba(0, 0, 0, 0.060);
 }
 
 .line {
