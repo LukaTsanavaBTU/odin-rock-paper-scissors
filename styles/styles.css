@@ -12,13 +12,11 @@ h1 {
 }
 
 main {
-    width: fit-content;
-    margin: auto;
 }
 
 .choice-buttons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -40,7 +38,7 @@ main {
 
 .info-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
     align-items: center;
 }
@@ -60,6 +58,7 @@ main {
 
 .info {
     border-radius: 10px;
+    flex: none;
 }
 
 .player-info,
@@ -71,7 +70,8 @@ main {
     height: 5px;
     background-color: rgba(0, 0, 0, 0.060);
     border-radius: 10px;
-    margin: 25px 0px;
+    margin: 25px auto;
+    max-width: 700px;
 }
 
 footer {
